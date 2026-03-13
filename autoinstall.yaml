@@ -51,6 +51,7 @@ autoinstall:
     - ncdu
     - python3-pip
     - python3-setuptools
+    - python3-venv
     - silversearcher-ag
     - tig
     - traceroute
@@ -120,7 +121,6 @@ autoinstall:
 
     # Install Backblaze B2 CLI in a virtual environment
     - curtin in-target --target=/target -- bash -c '
-      python3 -m venv /target/root/b2-venv &&
-      source /target/root/b2-venv/bin/activate &&
-      pip install --upgrade pip &&
-      pip install b2'
+      python3 -m venv /root/b2-venv &&
+      /root/b2-venv/bin/pip install --upgrade pip &&
+      /root/b2-venv/bin/pip install b2'
